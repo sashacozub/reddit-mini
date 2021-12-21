@@ -1,9 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
 
+:root {
+  --main-dark: rgb(0, 0, 0);
+  --main-light: rgb(255, 255, 255);
+  --main-background: rgb(231, 231, 231);
+  --main-shadow: rgb(122, 122, 122);
+  --reddit-theme: rgb(255, 69, 1);
+  --accent-color: rgb(0, 110, 255);
+
+  --main-font: 'Raleway', sans-serif;
+}
+
 html {
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--main-font);
 }
 
 body {
   min-height: 100vh;
+  background-color: var(--main-background);
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0px 1px 5px var(--main-dark);
+  background-color: var(--accent-color);
+  color: var(--main-light);
+  transition: all 100ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0px);
 }
