@@ -4,11 +4,11 @@
   --main-dark: rgb(0, 0, 0);
   --main-light: rgb(255, 255, 255);
   --main-background: rgb(231, 231, 231);
-  --main-shadow: rgb(122, 122, 122);
   --reddit-theme: rgb(255, 69, 1);
-  --accent-color: rgb(0, 110, 255);
+  --accent-color: rgb(0, 121, 211);
 
   --main-font: 'Raleway', sans-serif;
+  --main-shadow: 0px 5px 10px rgb(155, 155, 155);
 }
 
 html {
@@ -25,7 +25,7 @@ body {
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  box-shadow: 0px 1px 5px var(--main-dark);
+  box-shadow: var(--main-shadow);
   background-color: var(--accent-color);
   color: var(--main-light);
   transition: all 100ms ease;
@@ -37,4 +37,11 @@ body {
 
 .button:active {
   transform: translateY(0px);
+}
+
+.regular-box {
+  background-color: var(--main-light);
+  padding: 30px 40px;
+  box-shadow: var(--main-shadow);
+  border-radius: 6px;
 }

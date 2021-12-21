@@ -1,5 +1,4 @@
-import React from 'react';
-import { IconContext } from 'react-icons';
+import React, { useEffect } from 'react';
 
 import './Header.css';
 

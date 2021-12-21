@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-// import {featureReducer} from './path/slice'
+import subredditsReducer from './features/Subreddits/subredditsSlice';
 
 export default configureStore({
   reducer: {
-    // reducer: featureReducer,
+    subreddits: subredditsReducer,
   },
 });
