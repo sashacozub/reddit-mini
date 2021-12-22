@@ -44,4 +44,5 @@ body {
   padding: 30px 40px;
   box-shadow: var(--main-shadow);
   border-radius: 6px;
+  margin: 20px;
 }

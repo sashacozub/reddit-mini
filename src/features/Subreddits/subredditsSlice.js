@@ -27,7 +27,7 @@ const subredditsSlice = createSlice({
       })
       .addCase(fetchSubreddits.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.subreddits = state.subreddits.push(action.payload);
+        state.subreddits = state.subreddits.concat(action.payload);
       })
       .addCase(fetchSubreddits.rejected, (state, action) => {
         state.status = 'failed';

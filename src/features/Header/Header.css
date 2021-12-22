@@ -21,6 +21,10 @@
   margin: 0 10px;
 }
 
+.logo-text {
+  cursor: default;
+}
+
 .logo-text span {
   color: var(--accent-color);
 }

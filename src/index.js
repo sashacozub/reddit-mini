@@ -16,8 +16,7 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path='/home' element={<App />} />
-          <Route path='/' element={<Navigate to='/home' />} />
+          <Route path='/' element={<App />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
