@@ -11,12 +11,17 @@ import {
 } from '../Subreddit/subredditSlice';
 import Avatar from '../Avatar/Avatar';
 
+import { fetchPosts } from '../Subreddit/subredditSlice';
+import { selectPosts } from '../Subreddit/subredditSlice';
+
 const Subreddits = () => {
   const subreddits = useSelector(selectAllSubreddits);
   const subredditsStatus = useSelector((state) => state.subreddits.status);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
   const error = useSelector((state) => state.subreddits.error);
   const dispatch = useDispatch();
+
+  const posts = useSelector(selectPosts);
 
   useEffect(() => {
     if (subredditsStatus === 'idle') {
@@ -37,6 +42,8 @@ const Subreddits = () => {
           } subreddit-btn`}
           onClick={() => {
             dispatch(setSelectedSubreddit(post.url));
+            dispatch(fetchPosts(post.url));
+            console.log(posts);
           }}>
           <Avatar
             backgroundColor={post.primary_color}

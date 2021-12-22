@@ -1,4 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+import { getSubredditPosts } from '../../api/reddit';
 
 const initialState = {
   selectedSubreddit: '/r/Home/',
@@ -7,6 +9,14 @@ const initialState = {
   error: null,
 };
 
+export const fetchPosts = createAsyncThunk(
+  'subreddit/fetchPosts',
+  async (subreddit) => {
+    const response = await getSubredditPosts(subreddit);
+    return response;
+  }
+);
+
 export const subredditSlice = createSlice({
   name: 'subreddit',
   initialState,
@@ -14,7 +24,20 @@ export const subredditSlice = createSlice({
     setSelectedSubreddit(state, action) {
       state.selectedSubreddit = action.payload;
     },
-    getPosts(state, action) {},
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchPosts.pending, (state, action) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchPosts.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.posts = state.posts.concat(action.payload);
+      })
+      .addCase(fetchPosts.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
   },
 });
 
@@ -24,3 +47,5 @@ export const { setSelectedSubreddit } = subredditSlice.actions;
 
 export const selectSelectedSubreddit = (state) =>
   state.subreddit.selectedSubreddit;
+
+export const selectPosts = (state) => state.subreddit.posts;
