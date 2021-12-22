@@ -4,18 +4,18 @@ import { Outlet } from 'react-router-dom';
 import './App.css';
 
 import Header from './features/Header/Header';
-import Subreddits from './features/Subreddits/Subreddits';
+import AllSubreddits from './features/AllSubreddits/AllSubreddits';
 
 function App() {
   return (
     <React.Fragment>
       <Header />
+      <aside>
+        <AllSubreddits />
+      </aside>
       <main>
         <Outlet />
       </main>
-      <aside>
-        <Subreddits />
-      </aside>
     </React.Fragment>
   );
 }

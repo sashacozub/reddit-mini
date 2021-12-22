@@ -17,7 +17,7 @@
 
 .main-logo {
   font-size: 3rem;
-  color: var(--reddit-theme);
+  color: var(--accent-color);
   margin: 0 10px;
 }
 
