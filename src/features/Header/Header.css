@@ -53,13 +53,14 @@
 }
 
 .search-btn {
-  height: 90%;
+  height: 70%;
   outline: none;
   background-color: transparent;
   color: var(--main-dark);
   border: none;
   cursor: pointer;
   box-shadow: none;
+  margin-left: 10px;
 }
 
 .search-btn-icon {

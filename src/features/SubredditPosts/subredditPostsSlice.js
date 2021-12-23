@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getSubredditPosts } from '../../api/reddit';
 
 const initialState = {
-  selectedSubreddit: '/r/Home/',
+  selectedSubreddit: '/r/memes/',
   posts: [],
   status: 'idle',
   error: null,
