@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import ErrorPage from './features/ErrorPage/ErrorPage';
+import SubredditPosts from './features/SubredditPosts/SubredditPosts';
 
 import './index.css';
 
@@ -18,7 +19,7 @@ ReactDOM.render(
         <Routes>
           <Route path='/' element={<App />}>
             <Route index element={<h4>Select subreddit</h4>} />
-            <Route path='/r/:subredditName' element={<h4>Here are posts</h4>} />
+            <Route path='/r/:subredditName' element={<SubredditPosts />} />
           </Route>
           <Route path='*' element={<ErrorPage />} />
         </Routes>

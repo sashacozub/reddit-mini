@@ -8,26 +8,21 @@ import { selectAllSubreddits, fetchSubreddits } from './allSubredditsSlice';
 import {
   selectSelectedSubreddit,
   setSelectedSubreddit,
-} from '../Subreddit/subredditSlice';
+} from '../SubredditPosts/subredditPostsSlice';
 import Avatar from '../Avatar/Avatar';
-
-import { fetchPosts } from '../Subreddit/subredditSlice';
-import { selectPosts } from '../Subreddit/subredditSlice';
 
 const Subreddits = () => {
   const subreddits = useSelector(selectAllSubreddits);
   const subredditsStatus = useSelector((state) => state.subreddits.status);
-  const selectedSubreddit = useSelector(selectSelectedSubreddit);
   const error = useSelector((state) => state.subreddits.error);
+  const selectedSubreddit = useSelector(selectSelectedSubreddit);
   const dispatch = useDispatch();
-
-  const posts = useSelector(selectPosts);
 
   useEffect(() => {
     if (subredditsStatus === 'idle') {
       dispatch(fetchSubreddits());
     }
-  }, [dispatch, subredditsStatus, subreddits, error]);
+  }, [dispatch, subredditsStatus]);
 
   let content;
 
@@ -42,8 +37,6 @@ const Subreddits = () => {
           } subreddit-btn`}
           onClick={() => {
             dispatch(setSelectedSubreddit(post.url));
-            dispatch(fetchPosts(post.url));
-            console.log(posts);
           }}>
           <Avatar
             backgroundColor={post.primary_color}
@@ -67,9 +60,3 @@ const Subreddits = () => {
 };
 
 export default Subreddits;
-
-// post.id
-// post.display_name
-// post.icon_img
-// post.primary_color
-// post.url

@@ -32,7 +32,7 @@ export const subredditSlice = createSlice({
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.posts = state.posts.concat(action.payload);
+        state.posts = action.payload;
       })
       .addCase(fetchPosts.rejected, (state, action) => {
         state.status = 'failed';
@@ -47,5 +47,5 @@ export const { setSelectedSubreddit } = subredditSlice.actions;
 
 export const selectSelectedSubreddit = (state) =>
   state.subreddit.selectedSubreddit;
-
-export const selectPosts = (state) => state.subreddit.posts;
+export const selectSubredditPosts = (state) => state.subreddit.posts;
+export const selectSubredditStatus = (state) => state.subreddit.status;

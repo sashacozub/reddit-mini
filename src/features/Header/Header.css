@@ -1,6 +1,6 @@
 .header-ctr {
   max-width: 100%;
-  height: 70px;
+  height: 100%;
   box-shadow: var(--main-shadow);
   background-color: var(--main-light);
   display: flex;

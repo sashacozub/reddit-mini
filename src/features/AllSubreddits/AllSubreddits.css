@@ -1,8 +1,6 @@
 .subreddits-ctr {
-  float: right;
-  max-width: 350px;
-  height: auto;
   text-align: center;
+  margin-left: 0;
 }
 
 .subreddits-ctr h2 {

@@ -6,7 +6,7 @@ import { FaReddit, FaSearch } from 'react-icons/fa';
 
 const Header = () => {
   return (
-    <section className='header-ctr'>
+    <header className='header-ctr'>
       <div className='logo-ctr'>
         <FaReddit className='main-logo' />
         <h1 className='logo-text'>
@@ -19,7 +19,7 @@ const Header = () => {
           <FaSearch className='search-btn-icon' />
         </button>
       </form>
-    </section>
+    </header>
   );
 };
 
