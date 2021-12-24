@@ -47,7 +47,8 @@ h1 {
 }
 
 h2,
-h5 {
+h5,
+h6 {
   margin: 1rem 0;
 }
 
@@ -63,6 +64,7 @@ hr {
   box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
+  margin: 1rem 0;
 }
 
 /**

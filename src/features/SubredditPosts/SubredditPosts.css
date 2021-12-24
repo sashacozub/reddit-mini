@@ -1,4 +1,54 @@
-.post-image {
+.post-ctr {
+  display: flex;
+}
+
+.post-main {
+  flex: 1;
+}
+
+.post-main video {
+  width: 100%;
+}
+
+.post-aside {
+  margin-right: 30px;
+}
+
+.post-aside h6 {
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.votes-num {
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+.post-media {
   width: 100%;
   height: auto;
+}
+
+.post-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+}
+
+.post-details p {
+  font-size: 0.8rem;
+}
+
+.comment-icon {
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+.post-comments {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: var(--main-light);
+  border: none;
 }
