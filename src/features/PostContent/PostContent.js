@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import moment from 'moment';
 import { GoComment } from 'react-icons/go';
@@ -9,6 +10,9 @@ import './PostContent.css';
 
 const PostContent = ({ post }) => {
   const {
+    subreddit,
+    id,
+    permalink,
     score,
     title,
     is_video,
@@ -26,7 +30,10 @@ const PostContent = ({ post }) => {
         <small className='votes-num'>{numberFormat(`${score}`)}</small>
       </div>
       <div className='post-main'>
-        <h6>{title}</h6>
+        <Link to={`/r/${subreddit}/comments/${id}`}>
+          <h6>{title}</h6>
+        </Link>
+        {/* <h6>{title}</h6> */}
         {is_video && (
           <video
             src={media.reddit_video.fallback_url}

@@ -7,6 +7,7 @@ import store from './store';
 
 import ErrorPage from './features/ErrorPage/ErrorPage';
 import SubredditPosts from './features/SubredditPosts/SubredditPosts';
+import Comments from './features/Comments/Comments';
 
 import './index.css';
 
@@ -19,7 +20,11 @@ ReactDOM.render(
         <Routes>
           <Route path='/' element={<App />}>
             <Route index element={<SubredditPosts />} />
-            <Route path='r/:subredditName' element={<SubredditPosts />} />
+            <Route path='/r/:subredditName' element={<SubredditPosts />} />
+            <Route
+              path='/r/:subredditName/comments/:postId'
+              element={<Comments />}
+            />
           </Route>
           <Route path='*' element={<ErrorPage />} />
         </Routes>

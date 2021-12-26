@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import './AllSubreddits.css';
 
@@ -17,12 +17,14 @@ const Subreddits = () => {
   const error = useSelector((state) => state.subreddits.error);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (subredditsStatus === 'idle') {
       dispatch(fetchSubreddits());
+      navigate(selectedSubreddit);
     }
-  }, [dispatch, subredditsStatus]);
+  }, [dispatch, subredditsStatus, navigate, selectedSubreddit]);
 
   let content;
 
