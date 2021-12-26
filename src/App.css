@@ -4,7 +4,8 @@
   --main-dark: rgb(0, 0, 0);
   --main-light: rgb(255, 255, 255);
   --main-grey: rgba(0, 0, 0, 0.048);
-  --main-background: rgb(231, 231, 231);
+  --main-background: rgb(213, 218, 221);
+  --accent-grey: rgb(197, 197, 197);
   --reddit-theme: rgb(255, 69, 1);
   --accent-color: rgb(0, 121, 211);
   --accent-transparent: rgba(0, 121, 211, 0.4);
@@ -76,4 +77,5 @@ a {
   box-shadow: var(--main-shadow);
   border-radius: 6px;
   margin: 20px;
+  border: 1px solid var(--accent-grey);
 }

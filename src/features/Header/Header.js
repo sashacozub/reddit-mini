@@ -14,7 +14,7 @@ const Header = () => {
         </h1>
       </div>
       <form className='search-form'>
-        <input type='text' className='search-box' placeholder='Search...' />
+        <input type='text' className='search-box' placeholder='Search reddit' />
         <button type='submit' className='search-btn'>
           <FaSearch className='search-btn-icon' />
         </button>

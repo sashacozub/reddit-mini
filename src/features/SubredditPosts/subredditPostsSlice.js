@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getSubredditPosts } from '../../api/reddit';
+import { getSubredditPosts, getPostComments } from '../../api/reddit';
 
 const initialState = {
   selectedSubreddit: '/r/memes/',
@@ -13,6 +13,14 @@ export const fetchPosts = createAsyncThunk(
   'subreddit/fetchPosts',
   async (subreddit) => {
     const response = await getSubredditPosts(subreddit);
+    return response;
+  }
+);
+
+export const fetchPostComments = createAsyncThunk(
+  'subreddit/fetchComments',
+  async (postId) => {
+    const response = await getPostComments(postId);
     return response;
   }
 );

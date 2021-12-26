@@ -13,3 +13,9 @@ export const getSubredditPosts = async (subreddit) => {
 
   return jsonResponse.data.children.map((post) => post.data);
 };
+
+export const getPostComments = async (postId) => {
+  const response = await fetch(`${API_ROOT}/comments/${postId}.json`);
+  const jsonResponse = await response.json();
+  return jsonResponse;
+};

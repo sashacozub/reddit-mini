@@ -1,9 +1,12 @@
 .post-ctr {
   display: flex;
+  padding: 0 !important;
+  overflow: hidden;
 }
 
 .post-main {
   flex: 1;
+  padding: 30px;
 }
 
 .post-main video {
@@ -12,6 +15,8 @@
 
 .post-aside {
   margin-right: 30px;
+  background-color: var(--main-grey);
+  padding: 30px;
 }
 
 .post-aside h6 {

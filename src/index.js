@@ -18,8 +18,8 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<App />}>
-            <Route index element={<h4>Select subreddit</h4>} />
-            <Route path='/r/:subredditName' element={<SubredditPosts />} />
+            <Route index element={<SubredditPosts />} />
+            <Route path='r/:subredditName' element={<SubredditPosts />} />
           </Route>
           <Route path='*' element={<ErrorPage />} />
         </Routes>
