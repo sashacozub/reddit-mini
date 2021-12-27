@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+import './index.css';
+
 import store from './store';
 
+import App from './App';
 import ErrorPage from './features/ErrorPage/ErrorPage';
 import SubredditPosts from './features/SubredditPosts/SubredditPosts';
 import Comments from './features/Comments/Comments';
-
-import './index.css';
-
-import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>

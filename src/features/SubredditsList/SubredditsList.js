@@ -2,26 +2,33 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
-import './AllSubreddits.css';
+import './SubredditsList.css';
 
-import { selectAllSubreddits, fetchSubreddits } from './allSubredditsSlice';
+import {
+  selectAllSubreddits,
+  selectAllSubredditsStatus,
+  selectAllSubredditsError,
+  fetchAllSubreddits,
+} from './subredditsListSlice';
 import {
   selectSelectedSubreddit,
   setSelectedSubreddit,
 } from '../SubredditPosts/subredditPostsSlice';
-import Avatar from '../Avatar/Avatar';
+
+import Avatar from '../../components/Avatar/Avatar';
 
 const Subreddits = () => {
   const subreddits = useSelector(selectAllSubreddits);
-  const subredditsStatus = useSelector((state) => state.subreddits.status);
-  const error = useSelector((state) => state.subreddits.error);
+  const subredditsStatus = useSelector(selectAllSubredditsStatus);
+  const error = useSelector(selectAllSubredditsError);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (subredditsStatus === 'idle') {
-      dispatch(fetchSubreddits());
+      dispatch(fetchAllSubreddits());
       navigate(selectedSubreddit);
     }
   }, [dispatch, subredditsStatus, navigate, selectedSubreddit]);
@@ -29,7 +36,7 @@ const Subreddits = () => {
   let content;
 
   if (subredditsStatus === 'loading') {
-    content = <p>Loading...</p>;
+    content = <h2 style={{ margin: '3rem' }}>Loading subreddits...</h2>;
   } else if (subredditsStatus === 'succeeded') {
     content = subreddits.map((post) => (
       <Link to={`${post.url}`} key={post.id}>
@@ -50,7 +57,7 @@ const Subreddits = () => {
       </Link>
     ));
   } else if (subredditsStatus === 'failed') {
-    content = error;
+    content = <h2 style={{ margin: '3rem' }}>{error}</h2>;
   }
 
   return (

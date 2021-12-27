@@ -49,3 +49,4 @@ export const selectSelectedSubreddit = (state) =>
   state.subreddit.selectedSubreddit;
 export const selectSubredditPosts = (state) => state.subreddit.posts;
 export const selectSubredditStatus = (state) => state.subreddit.status;
+export const selectSubredditError = (state) => state.subreddit.error;

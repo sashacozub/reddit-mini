@@ -8,23 +8,26 @@ import {
   selectCommentsStatus,
 } from './commentsSlice';
 
+import './Comments.css';
+
 const Comments = () => {
-  const selectedPostId = useSelector(selectSelectedPostId);
-  const commentsStatus = useSelector(selectCommentsStatus);
+  const postId = useSelector(selectSelectedPostId);
   const comments = useSelector(selectComments);
+  const status = useSelector(selectCommentsStatus);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchComments(selectedPostId));
-  }, [dispatch, selectedPostId]);
+    dispatch(fetchComments(postId));
+  }, [dispatch, postId]);
 
   let content;
 
-  if (commentsStatus === 'succeeded') {
+  if (status === 'succeeded') {
     console.log('from comments component: ', comments);
   }
 
-  return <div>Comments</div>;
+  return <h2>Comments</h2>;
 };
 
 export default Comments;

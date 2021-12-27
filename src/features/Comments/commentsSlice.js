@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getPostComments } from '../../api/reddit';
 
 const initialState = {
-  selectedPostId: 'rn92hu',
+  selectedPostId: '',
   comments: [],
   status: 'idle',
   error: null,
@@ -20,7 +20,11 @@ export const fetchComments = createAsyncThunk(
 export const commentsSlice = createSlice({
   name: 'comments',
   initialState,
-  reducers: {},
+  reducers: {
+    setSelectedPostId(state, action) {
+      state.selectedPostId = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchComments.pending, (state, action) => {
@@ -38,6 +42,8 @@ export const commentsSlice = createSlice({
 });
 
 export default commentsSlice.reducer;
+
+export const { setSelectedPostId } = commentsSlice.actions;
 
 export const selectComments = (state) => state.comments.comments;
 export const selectSelectedPostId = (state) => state.comments.selectedPostId;

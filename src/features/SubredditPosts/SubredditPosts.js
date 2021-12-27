@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { fetchPosts } from '../SubredditPosts/subredditPostsSlice';
 import {
   selectSubredditPosts,
   selectSubredditStatus,
+  selectSubredditError,
   selectSelectedSubreddit,
+  fetchPosts,
 } from '../SubredditPosts/subredditPostsSlice';
 
 import PostContent from '../PostContent/PostContent';
 
 const Subreddit = () => {
-  const subredditPostsStatus = useSelector(selectSubredditStatus);
-  const selectedPosts = useSelector(selectSubredditPosts);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
+  const posts = useSelector(selectSubredditPosts);
+  const status = useSelector(selectSubredditStatus);
+  const error = useSelector(selectSubredditError);
 
   const dispatch = useDispatch();
 
@@ -23,18 +25,18 @@ const Subreddit = () => {
 
   let content;
 
-  if (subredditPostsStatus === 'loading') {
-    content = <p style={{ margin: '3rem' }}>Loading posts...</p>;
-  } else if (subredditPostsStatus === 'succeeded') {
-    console.log(selectedPosts);
-    content = selectedPosts.map((post) => {
+  if (status === 'loading') {
+    content = <h2 style={{ margin: '3rem' }}>Loading posts...</h2>;
+  } else if (status === 'succeeded') {
+    console.log(posts);
+    content = posts.map((post) => {
       return <PostContent post={post} key={post.id} />;
     });
-  } else if (subredditPostsStatus === 'failed') {
-    content = <p>Error</p>; //change to useSelect Error
+  } else if (status === 'failed') {
+    content = <h2 style={{ margin: '3rem' }}>{error}</h2>;
   }
 
-  return <h1>{content}</h1>;
+  return <>{content}</>;
 };
 
 export default Subreddit;

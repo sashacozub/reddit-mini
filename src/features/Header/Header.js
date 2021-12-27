@@ -1,8 +1,7 @@
 import React from 'react';
+import { FaReddit, FaSearch } from 'react-icons/fa';
 
 import './Header.css';
-
-import { FaReddit, FaSearch } from 'react-icons/fa';
 
 const Header = () => {
   return (

@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import allSubredditsReducer from './features/AllSubreddits/allSubredditsSlice';
+import subredditsListReducer from './features/SubredditsList/subredditsListSlice';
 import subredditReducer from './features/SubredditPosts/subredditPostsSlice';
 import commentsReducer from './features/Comments/commentsSlice';
 
 export default configureStore({
   reducer: {
-    subreddits: allSubredditsReducer,
+    subredditsList: subredditsListReducer,
     subreddit: subredditReducer,
     comments: commentsReducer,
   },

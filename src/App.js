@@ -4,14 +4,14 @@ import { Outlet } from 'react-router-dom';
 import './App.css';
 
 import Header from './features/Header/Header';
-import AllSubreddits from './features/AllSubreddits/AllSubreddits';
+import SubredditsList from './features/SubredditsList/SubredditsList';
 
 function App() {
   return (
     <React.Fragment>
       <Header />
       <aside>
-        <AllSubreddits />
+        <SubredditsList />
       </aside>
       <main>
         <Outlet />

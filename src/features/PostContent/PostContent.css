@@ -50,10 +50,20 @@
   margin-right: 5px;
 }
 
-.post-comments {
+.post-comments-btn {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   background-color: var(--main-light);
   border: none;
+}
+
+.post-comments {
+  height: 0px;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+}
+
+.post-comments-open {
+  height: auto;
 }
