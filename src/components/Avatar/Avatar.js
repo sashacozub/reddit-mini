@@ -7,7 +7,7 @@ import { FcReddit } from 'react-icons/fc';
 const Avatar = ({ backgroundColor, imageLink, name }) => {
   return (
     <div
-      className='subreddit-img-ctr'
+      className='avatar-img-ctr'
       style={{ border: `3px solid ${backgroundColor}` }}>
       {imageLink ? (
         <img src={imageLink} alt={name} />

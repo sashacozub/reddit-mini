@@ -4,6 +4,7 @@ import { getPostComments } from '../../api/reddit';
 
 const initialState = {
   selectedPostId: '',
+  selectedPost: {},
   comments: [],
   status: 'idle',
   error: null,
@@ -24,6 +25,9 @@ export const commentsSlice = createSlice({
     setSelectedPostId(state, action) {
       state.selectedPostId = action.payload;
     },
+    setSelectedPost(state, action) {
+      state.selectedPost = action.payload;
+    },
   },
   extraReducers(builder) {
     builder
@@ -43,8 +47,11 @@ export const commentsSlice = createSlice({
 
 export default commentsSlice.reducer;
 
-export const { setSelectedPostId } = commentsSlice.actions;
+export const { setSelectedPostId, setSelectedPost } = commentsSlice.actions;
 
-export const selectComments = (state) => state.comments.comments;
-export const selectSelectedPostId = (state) => state.comments.selectedPostId;
-export const selectCommentsStatus = (state) => state.comments.status;
+export const selectComments = (state) => state.commentsPage.comments;
+export const selectSelectedPost = (state) => state.commentsPage.selectedPost;
+export const selectSelectedPostId = (state) =>
+  state.commentsPage.selectedPostId;
+export const selectCommentsStatus = (state) => state.commentsPage.status;
+export const selectCommentsError = (state) => state.commentsPage.error;

@@ -2,12 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import subredditsListReducer from './features/SubredditsList/subredditsListSlice';
 import subredditReducer from './features/SubredditPosts/subredditPostsSlice';
-import commentsReducer from './features/Comments/commentsSlice';
+import commentsPageReducer from './features/CommentsPage/commentsPageSlice';
 
 export default configureStore({
   reducer: {
     subredditsList: subredditsListReducer,
     subreddit: subredditReducer,
-    comments: commentsReducer,
+    commentsPage: commentsPageReducer,
   },
 });

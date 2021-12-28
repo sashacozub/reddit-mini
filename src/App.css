@@ -44,17 +44,25 @@ body {
   background-color: var(--main-background);
 }
 
+h2 {
+  font-weight: 400;
+}
+
 li {
   list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: var(--main-dark);
+  color: var(--accent-color);
 }
 
-a:visited {
-  color: var(--accent-grey);
+hr {
+  border: 2px solid var(--main-grey);
+}
+
+.post-media {
+  width: 75%;
+  height: auto;
 }
 
 .button {

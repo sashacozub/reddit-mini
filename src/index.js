@@ -10,7 +10,7 @@ import store from './store';
 import App from './App';
 import ErrorPage from './features/ErrorPage/ErrorPage';
 import SubredditPosts from './features/SubredditPosts/SubredditPosts';
-import Comments from './features/Comments/Comments';
+import CommentsPage from './features/CommentsPage/CommentsPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,7 +22,7 @@ ReactDOM.render(
             <Route path='/r/:subredditName' element={<SubredditPosts />} />
             <Route
               path='/r/:subredditName/comments/:postId'
-              element={<Comments />}
+              element={<CommentsPage />}
             />
           </Route>
           <Route path='*' element={<ErrorPage />} />

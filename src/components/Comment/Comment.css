@@ -1,0 +1,24 @@
+.comment-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--main-grey);
+  border-left: 6px solid var(--main-grey);
+  margin-top: 10px;
+  padding: 20px;
+}
+
+.comment-votes {
+  background-color: var(--main-grey);
+}
+
+.comment-head {
+  background-color: var(--main-grey);
+}
+
+.comment-head small {
+  margin-left: 20px;
+}
+
+.comment-text {
+  margin-top: 20px;
+}

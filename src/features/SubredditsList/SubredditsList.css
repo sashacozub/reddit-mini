@@ -7,6 +7,10 @@
   cursor: default;
 }
 
+.subreddits-ctr a {
+  text-decoration: none;
+}
+
 .subreddits-ctr ul {
   padding: 0;
 }
@@ -19,7 +23,6 @@
   height: auto;
   padding: 10px 15px;
   font-size: 1.2rem;
-  font-weight: 700;
   border: none;
   background-color: var(--main-light);
   border-left: 6px solid transparent;

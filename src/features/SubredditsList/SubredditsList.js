@@ -36,7 +36,7 @@ const Subreddits = () => {
   let content;
 
   if (subredditsStatus === 'loading') {
-    content = <h2 style={{ margin: '3rem' }}>Loading subreddits...</h2>;
+    content = <h6 style={{ margin: '3rem' }}>Loading subreddits...</h6>;
   } else if (subredditsStatus === 'succeeded') {
     content = subreddits.map((post) => (
       <Link to={`${post.url}`} key={post.id}>

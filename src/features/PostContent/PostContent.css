@@ -9,8 +9,9 @@
   padding: 30px;
 }
 
-.post-main video {
-  width: 100%;
+.post-main a {
+  text-decoration: none;
+  color: var(--main-dark);
 }
 
 .post-aside {
@@ -19,7 +20,7 @@
   padding: 30px;
 }
 
-.post-aside h6 {
+.post-aside h4 {
   margin-bottom: 0;
   font-weight: 400;
 }
@@ -27,11 +28,6 @@
 .votes-num {
   font-size: 1.2rem;
   font-weight: 200;
-}
-
-.post-media {
-  width: 100%;
-  height: auto;
 }
 
 .post-details {
@@ -56,6 +52,12 @@
   cursor: pointer;
   background-color: var(--main-light);
   border: none;
+  padding: 5px 10px;
+  transition: all 200ms ease;
+}
+
+.post-comments-btn:hover {
+  background-color: var(--main-grey);
 }
 
 .post-comments {
