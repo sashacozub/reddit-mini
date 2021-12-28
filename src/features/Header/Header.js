@@ -9,7 +9,7 @@ const Header = () => {
       <div className='logo-ctr'>
         <FaReddit className='main-logo' />
         <h1 className='logo-text'>
-          <span>reddit</span>Minimal
+          <span>reddit</span>Mini
         </h1>
       </div>
       <form className='search-form'>
