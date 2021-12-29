@@ -26,6 +26,7 @@ const PostContent = ({ post }) => {
     author,
     created_utc,
     num_comments,
+    over_18,
   } = post;
 
   const dispatch = useDispatch();
@@ -42,21 +43,26 @@ const PostContent = ({ post }) => {
         <small className='votes-num'>{numberFormat(`${score}`)}</small>
       </div>
       <div className='post-main'>
-        {/* <Link to={`/r/${subreddit}/comments/${id}`}> */}
         <Link to={`${permalink}`}>
-          <h2 onClick={handlePostSelect}>{title}</h2>
+          <h2 onClick={handlePostSelect}>
+            {title} {over_18 && <span className='nsfw-icon'>NSFW</span>}
+          </h2>
         </Link>
         {is_video && (
-          <video
-            src={media.reddit_video.fallback_url}
-            controls
-            loop={true}
-            preload='auto'
-            className='post-media'
-          />
+          <div className='media-ctr'>
+            <video
+              src={media.reddit_video.fallback_url}
+              controls
+              loop={true}
+              preload='auto'
+              className={`post-media ${over_18 && 'over-18-content'}`}
+            />
+          </div>
         )}
         {url_overridden_by_dest && (
-          <img src={url_overridden_by_dest} alt='' className='post-media' />
+          <div className='media-ctr'>
+            <img src={url_overridden_by_dest} alt='' className='post-media' />
+          </div>
         )}
         <hr />
         <div className='post-details'>

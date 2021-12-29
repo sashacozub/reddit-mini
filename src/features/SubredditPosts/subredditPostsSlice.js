@@ -5,7 +5,7 @@ import { getSubredditPosts } from '../../api/reddit';
 const initialState = {
   selectedSubreddit: '/r/memes/',
   posts: [],
-  searchFilter: '',
+  searchTermFilter: '',
   status: 'idle',
   error: null,
 };
@@ -24,6 +24,9 @@ export const subredditSlice = createSlice({
   reducers: {
     setSelectedSubreddit(state, action) {
       state.selectedSubreddit = action.payload;
+    },
+    setPostSearchTerm(state, action) {
+      state.searchTermFilter = action.payload;
     },
   },
   extraReducers(builder) {
@@ -44,10 +47,13 @@ export const subredditSlice = createSlice({
 
 export default subredditSlice.reducer;
 
-export const { setSelectedSubreddit } = subredditSlice.actions;
+export const { setSelectedSubreddit, setPostSearchTerm, setPosts } =
+  subredditSlice.actions;
 
 export const selectSelectedSubreddit = (state) =>
   state.subreddit.selectedSubreddit;
 export const selectSubredditPosts = (state) => state.subreddit.posts;
 export const selectSubredditStatus = (state) => state.subreddit.status;
 export const selectSubredditError = (state) => state.subreddit.error;
+export const selectSearchTermFilter = (state) =>
+  state.subreddit.searchTermFilter;

@@ -6,6 +6,7 @@ import {
   selectSubredditStatus,
   selectSubredditError,
   selectSelectedSubreddit,
+  selectSearchTermFilter,
   fetchPosts,
 } from '../SubredditPosts/subredditPostsSlice';
 
@@ -16,8 +17,15 @@ const Subreddit = () => {
   const posts = useSelector(selectSubredditPosts);
   const status = useSelector(selectSubredditStatus);
   const error = useSelector(selectSubredditError);
+  const searchTermFilter = useSelector(selectSearchTermFilter);
 
   const dispatch = useDispatch();
+
+  const filterPostsBySearchTerm = (posts) => {
+    return posts.filter((post) =>
+      post.title.toLowerCase().includes(searchTermFilter.toLowerCase())
+    );
+  };
 
   useEffect(() => {
     dispatch(fetchPosts(selectedSubreddit));
@@ -29,7 +37,9 @@ const Subreddit = () => {
     content = <h2 style={{ margin: '3rem' }}>Loading posts...</h2>;
   } else if (status === 'succeeded') {
     console.log(posts);
-    content = posts.map((post) => {
+    const filteredPosts = filterPostsBySearchTerm(posts);
+    console.log(filteredPosts);
+    content = filteredPosts.map((post) => {
       return <PostContent post={post} key={post.id} />;
     });
   } else if (status === 'failed') {

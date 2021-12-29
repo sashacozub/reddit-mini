@@ -7,11 +7,11 @@ import './index.css';
 
 import store from './store';
 
+import ScrollToTop from './utils/ScrollToTop';
 import App from './App';
 import ErrorPage from './features/ErrorPage/ErrorPage';
 import SubredditPosts from './features/SubredditPosts/SubredditPosts';
 import CommentsPage from './features/CommentsPage/CommentsPage';
-import ScrollToTop from './utils/ScrollToTop';
 
 ReactDOM.render(
   <React.StrictMode>
