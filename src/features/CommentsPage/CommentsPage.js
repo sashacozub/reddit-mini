@@ -13,7 +13,7 @@ import {
 } from './commentsPageSlice';
 import { selectSelectedPost } from './commentsPageSlice';
 
-import Comment from '../../components/Comment/Comment';
+import Comment from '../Comment/Comment';
 import { numberFormat } from '../../utils/numberFormat';
 
 import './CommentsPage.css';
@@ -55,11 +55,7 @@ const CommentsPage = () => {
       </div>
       <div className='post-comments-header'>
         <h2>{post.title}</h2>
-        {post.selftext && (
-          <p>
-            <ReactMarkdown>{post.selftext}</ReactMarkdown>
-          </p>
-        )}
+        {post.selftext && <ReactMarkdown children={post.selftext} />}
         <hr />
         {post.is_video && (
           <video
@@ -78,7 +74,11 @@ const CommentsPage = () => {
           />
         )}
       </div>
-      <Comment comments={comments} />
+      <ul className='root-comment'>
+        {comments.map((comment) => {
+          return <Comment comment={comment} key={comment.id} />;
+        })}
+      </ul>
     </div>
   );
 };

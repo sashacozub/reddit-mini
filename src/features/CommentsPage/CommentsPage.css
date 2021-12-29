@@ -16,3 +16,8 @@
 .post-comments-header {
   padding: 0 30px;
 }
+
+.root-comment > li {
+  border: 1px solid var(--accent-grey);
+  border-left: 6px solid var(--accent-grey);
+}

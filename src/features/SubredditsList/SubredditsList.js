@@ -15,7 +15,7 @@ import {
   setSelectedSubreddit,
 } from '../SubredditPosts/subredditPostsSlice';
 
-import Avatar from '../../components/Avatar/Avatar';
+import Avatar from '../Avatar/Avatar';
 
 const Subreddits = () => {
   const subreddits = useSelector(selectAllSubreddits);
