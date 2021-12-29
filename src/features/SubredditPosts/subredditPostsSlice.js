@@ -5,6 +5,7 @@ import { getSubredditPosts } from '../../api/reddit';
 const initialState = {
   selectedSubreddit: '/r/memes/',
   posts: [],
+  searchFilter: '',
   status: 'idle',
   error: null,
 };

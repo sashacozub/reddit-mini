@@ -9,20 +9,23 @@
   padding: 0 50px;
 }
 
+.header-ctr a {
+  text-decoration: none;
+}
+
 .logo-ctr {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 .main-logo {
   font-size: 3rem;
   color: var(--accent-color);
   margin: 0 10px;
-}
-
-.logo-text {
-  cursor: default;
 }
 
 .logo-text span {

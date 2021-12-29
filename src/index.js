@@ -11,17 +11,19 @@ import App from './App';
 import ErrorPage from './features/ErrorPage/ErrorPage';
 import SubredditPosts from './features/SubredditPosts/SubredditPosts';
 import CommentsPage from './features/CommentsPage/CommentsPage';
+import ScrollToTop from './utils/ScrollToTop';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<App />}>
             <Route index element={<SubredditPosts />} />
             <Route path='/r/:subredditName' element={<SubredditPosts />} />
             <Route
-              path='/r/:subredditName/comments/:postId'
+              path='/r/:subredditName/comments/:postId/:postName'
               element={<CommentsPage />}
             />
           </Route>

@@ -15,6 +15,7 @@ import './PostContent.css';
 
 const PostContent = ({ post }) => {
   const {
+    permalink,
     subreddit,
     id,
     score,
@@ -41,7 +42,8 @@ const PostContent = ({ post }) => {
         <small className='votes-num'>{numberFormat(`${score}`)}</small>
       </div>
       <div className='post-main'>
-        <Link to={`/r/${subreddit}/comments/${id}`}>
+        {/* <Link to={`/r/${subreddit}/comments/${id}`}> */}
+        <Link to={`${permalink}`}>
           <h2 onClick={handlePostSelect}>{title}</h2>
         </Link>
         {is_video && (
@@ -61,11 +63,11 @@ const PostContent = ({ post }) => {
           <p>by {author}</p>
           <p>{moment.unix(created_utc).fromNow()}</p>
           <Link
-            to={`/r/${subreddit}/comments/${id}`}
+            to={`${permalink}`}
             onClick={handlePostSelect}
             className='post-comments-btn'>
             <GoComment className='comment-icon' />
-            <p>{num_comments}</p>
+            <p>{numberFormat(num_comments)}</p>
           </Link>
         </div>
       </div>
