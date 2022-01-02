@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { GoComment } from 'react-icons/go';
 
+import { GoComment } from 'react-icons/go';
 import {
   setSelectedPostId,
   setSelectedPost,
@@ -16,13 +16,12 @@ import './PostContent.css';
 const PostContent = ({ post }) => {
   const {
     permalink,
-    subreddit,
     id,
     score,
     title,
     is_video,
     media,
-    url_overridden_by_dest,
+    url,
     author,
     created_utc,
     num_comments,
@@ -34,6 +33,7 @@ const PostContent = ({ post }) => {
   const handlePostSelect = () => {
     dispatch(setSelectedPostId(id));
     dispatch(setSelectedPost(post));
+    window.localStorage.setItem('storagePost', JSON.stringify(post));
   };
 
   return (
@@ -43,7 +43,7 @@ const PostContent = ({ post }) => {
         <small className='votes-num'>{numberFormat(`${score}`)}</small>
       </div>
       <div className='post-main'>
-        <Link to={`${permalink}`}>
+        <Link target='_blank' to={`${permalink}`}>
           <h2 onClick={handlePostSelect}>
             {title} {over_18 && <span className='nsfw-icon'>NSFW</span>}
           </h2>
@@ -59,9 +59,9 @@ const PostContent = ({ post }) => {
             />
           </div>
         )}
-        {url_overridden_by_dest && (
+        {url && (
           <div className='media-ctr'>
-            <img src={url_overridden_by_dest} alt='' className='post-media' />
+            <img src={url} alt='' className='post-media' />
           </div>
         )}
         <hr />
@@ -69,6 +69,7 @@ const PostContent = ({ post }) => {
           <p>by {author}</p>
           <p>{moment.unix(created_utc).fromNow()}</p>
           <Link
+            target='_blank'
             to={`${permalink}`}
             onClick={handlePostSelect}
             className='post-comments-btn'>

@@ -5,6 +5,7 @@ import { getPostComments } from '../../api/reddit';
 const initialState = {
   selectedPostId: '',
   selectedPost: {},
+  permalink: '',
   comments: [],
   status: 'idle',
   error: null,
@@ -47,7 +48,8 @@ export const commentsSlice = createSlice({
 
 export default commentsSlice.reducer;
 
-export const { setSelectedPostId, setSelectedPost } = commentsSlice.actions;
+export const { setSelectedPostId, setSelectedPost, setPermalink } =
+  commentsSlice.actions;
 
 export const selectComments = (state) => state.commentsPage.comments;
 export const selectSelectedPost = (state) => state.commentsPage.selectedPost;
