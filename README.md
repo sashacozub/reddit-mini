@@ -45,3 +45,4 @@ _To do:_
 
 - Add a different functionality for "comments" button in order to load in the comments without opening the post on a separate page.
 - Change "Search" field to look for the searched term from the whole website instead of just currently loaded posts.
+- Add an animation, "skeleton" for the data that is being fetched instead of boring "Loading..."
