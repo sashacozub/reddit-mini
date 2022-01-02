@@ -27,7 +27,14 @@ ReactDOM.render(
               element={<CommentsPage />}
             />
           </Route>
-          <Route path='*' element={<ErrorPage />} />
+          <Route
+            path='*'
+            element={
+              <main>
+                <h2>Error...</h2>
+              </main>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </Provider>
