@@ -26,21 +26,9 @@ const CommentsPage = () => {
   const error = useSelector(selectCommentsError);
 
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchComments(postId));
-
-    // if (window.localStorage.getItem('storagePost')) {
-    //   const storagePost = JSON.parse(
-    //     window.localStorage.getItem('storagePost')
-    //   );
-    //   dispatch(setSelectedPost(storagePost));
-    //   dispatch(fetchComments(storagePost.id));
-    //   navigate(storagePost.permalink);
-    // } else {
-    //   dispatch(fetchComments(postId));
-    // }
   }, [dispatch, postId]);
 
   let content;

@@ -9,7 +9,7 @@ import store from './store';
 
 import ScrollToTop from './utils/ScrollToTop';
 import App from './App';
-// import ErrorPage from './features/ErrorPage/ErrorPage';
+import ErrorPage from './features/ErrorPage/ErrorPage';
 import SubredditPosts from './features/SubredditPosts/SubredditPosts';
 import CommentsPage from './features/CommentsPage/CommentsPage';
 
@@ -27,14 +27,7 @@ ReactDOM.render(
               element={<CommentsPage />}
             />
           </Route>
-          <Route
-            path='*'
-            element={
-              <main>
-                <h2>Error...</h2>
-              </main>
-            }
-          />
+          <Route path='*' element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </Provider>

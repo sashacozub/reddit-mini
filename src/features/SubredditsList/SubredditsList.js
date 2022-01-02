@@ -29,7 +29,7 @@ const Subreddits = () => {
   useEffect(() => {
     if (subredditsStatus === 'idle') {
       dispatch(fetchAllSubreddits());
-      // navigate(selectedSubreddit);
+      navigate(selectedSubreddit);
     }
   }, [dispatch, subredditsStatus, navigate, selectedSubreddit]);
 

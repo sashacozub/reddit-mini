@@ -33,7 +33,6 @@ const PostContent = ({ post }) => {
   const handlePostSelect = () => {
     dispatch(setSelectedPostId(id));
     dispatch(setSelectedPost(post));
-    // window.localStorage.setItem('storagePost', JSON.stringify(post));
   };
 
   return (
