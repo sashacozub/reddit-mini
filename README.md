@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# redditMini
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a light version of [Reddit](https://www.reddit.com/) made as a final portfolio project for Frontend Developer path from [Codecademy.com](https://www.codecademy.com/).
+<br/>
 
-## Available Scripts
+- Live demo can be found [here](https://reddit-mini-sc.netlify.app/).
 
-In the project directory, you can run:
+## Project's aim
 
-### `npm start`
+Tha aim of this project was to solidify knowledge and practice in building an app with React, React Router and specifically Redux and Redux Toolkit.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## App description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This app was created using a simple version of [Reddit JSON API](https://github.com/reddit-archive/reddit/wiki/JSON) that does not require an OAuth workflow. It has a limited functionality, but it does not require any API keys to be used, which allowed me to focus on the main reason of the project - create an app that uses Redux for global state management.
+<br/>
+This application fetches a predefined list of subreddits(categories) that the user can choose to see the posts from. After loading the selected subreddit, the user then can choose to open any specific post and the comments for that post will be fetched, along with some extra information: post rating, author, post date.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ReactJS with Hooks
+- React Router V6
+- Redux / Redux Toolkit
+- Javascript
+- AJAX
+- HTML5
+- CSS3
 
-### `npm run build`
+## Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="https://i.imgur.com/b7dY6vB.png" alt="" width="300"/> <img src="https://i.imgur.com/B8naVdv.png" alt="" width="600"/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Status
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The first version of the project is complete, all the main features are up and running.
+Due to limitations of the API used, I have yet to discover some way to adjust images and videos for performance improvement, if possible.
 
-### `npm run eject`
+## Room for Improvement
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+_Potential improvements:_
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- The app performace could be improved by adjusting the media content sizes in order to reduce the amount of data needed to download.
+- As one of the solutions for the first point is to implement a so called infinite scroll in order to fetch limited amount of data first and then load in more when scrolling down the page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+_To do:_
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add a different functionality for "comments" button in order to load in the comments without opening the post on a separate page.
+- Change "Search" field to look for the searched term from the whole website instead of just currently loaded posts.
