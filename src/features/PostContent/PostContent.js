@@ -33,7 +33,7 @@ const PostContent = ({ post }) => {
   const handlePostSelect = () => {
     dispatch(setSelectedPostId(id));
     dispatch(setSelectedPost(post));
-    window.localStorage.setItem('storagePost', JSON.stringify(post));
+    // window.localStorage.setItem('storagePost', JSON.stringify(post));
   };
 
   return (
@@ -43,7 +43,7 @@ const PostContent = ({ post }) => {
         <small className='votes-num'>{numberFormat(`${score}`)}</small>
       </div>
       <div className='post-main'>
-        <Link target='_blank' to={`${permalink}`}>
+        <Link to={`${permalink}`}>
           <h2 onClick={handlePostSelect}>
             {title} {over_18 && <span className='nsfw-icon'>NSFW</span>}
           </h2>
@@ -69,7 +69,6 @@ const PostContent = ({ post }) => {
           <p>by {author}</p>
           <p>{moment.unix(created_utc).fromNow()}</p>
           <Link
-            target='_blank'
             to={`${permalink}`}
             onClick={handlePostSelect}
             className='post-comments-btn'>

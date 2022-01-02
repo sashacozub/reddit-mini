@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
 
@@ -11,7 +11,7 @@ import {
   selectCommentsStatus,
   selectCommentsError,
 } from './commentsPageSlice';
-import { selectSelectedPost, setSelectedPost } from './commentsPageSlice';
+import { selectSelectedPost } from './commentsPageSlice';
 
 import Comment from '../Comment/Comment';
 import { numberFormat } from '../../utils/numberFormat';
@@ -26,20 +26,22 @@ const CommentsPage = () => {
   const error = useSelector(selectCommentsError);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
-    if (window.localStorage.getItem('storagePost')) {
-      const storagePost = JSON.parse(
-        window.localStorage.getItem('storagePost')
-      );
-      dispatch(setSelectedPost(storagePost));
-      dispatch(fetchComments(storagePost.id));
-      navigate(storagePost.permalink);
-    } else {
-      dispatch(fetchComments(postId));
-    }
-  }, [dispatch, postId, navigate]);
+    dispatch(fetchComments(postId));
+
+    // if (window.localStorage.getItem('storagePost')) {
+    //   const storagePost = JSON.parse(
+    //     window.localStorage.getItem('storagePost')
+    //   );
+    //   dispatch(setSelectedPost(storagePost));
+    //   dispatch(fetchComments(storagePost.id));
+    //   navigate(storagePost.permalink);
+    // } else {
+    //   dispatch(fetchComments(postId));
+    // }
+  }, [dispatch, postId]);
 
   let content;
 
