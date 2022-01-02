@@ -29,15 +29,8 @@ const Subreddits = () => {
   useEffect(() => {
     if (subredditsStatus === 'idle') {
       dispatch(fetchAllSubreddits());
-      // navigate(selectedSubreddit);
+      navigate(selectedSubreddit);
     }
-
-    // if (window.localStorage.getItem('permalink')) {
-    // const permalink = window.localStorage.getItem('permalink');
-    // console.log(permalink);
-    // navigate(permalink);
-    // navigate(selectedSubreddit);
-    // }
   }, [dispatch, subredditsStatus, navigate, selectedSubreddit]);
 
   let content;

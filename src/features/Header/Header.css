@@ -33,6 +33,7 @@
 }
 
 .search-form {
+  max-width: 100%;
   width: 350px;
   height: 30px;
   display: flex;
