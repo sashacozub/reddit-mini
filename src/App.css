@@ -61,7 +61,6 @@ hr {
 }
 
 .post-media {
-  max-width: 100%;
   width: 75%;
   height: auto;
 }
@@ -148,6 +147,10 @@ hr {
 @media screen and (max-width: 715px) {
   #root {
     grid-template-rows: 130px auto 1fr;
+  }
+
+  div.regular-box {
+    padding: 10px;
   }
 
   header.header-ctr {

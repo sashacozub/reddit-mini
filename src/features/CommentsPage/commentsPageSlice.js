@@ -5,7 +5,6 @@ import { getPostComments } from '../../api/reddit';
 const initialState = {
   selectedPostId: '',
   selectedPost: {},
-  permalink: '',
   comments: [],
   status: 'idle',
   error: null,

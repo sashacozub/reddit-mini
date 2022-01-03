@@ -36,7 +36,6 @@ const Subreddit = () => {
   if (status === 'loading') {
     content = <h2 style={{ margin: '3rem' }}>Loading posts...</h2>;
   } else if (status === 'succeeded') {
-    // console.log(posts);
     const filteredPosts = filterPostsBySearchTerm(posts);
     content = filteredPosts.map((post) => {
       return <PostContent post={post} key={post.id} />;

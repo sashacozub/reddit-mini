@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './SubredditsList.css';
 
@@ -24,14 +24,20 @@ const Subreddits = () => {
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (subredditsStatus === 'idle') {
       dispatch(fetchAllSubreddits());
-      // navigate(selectedSubreddit);
+
+      if (!window.localStorage.storageSubreddit) {
+        window.localStorage.setItem('storageSubreddit', selectedSubreddit);
+      } else {
+        const previousSubreddit =
+          window.localStorage.getItem('storageSubreddit');
+        dispatch(setSelectedSubreddit(previousSubreddit));
+      }
     }
-  }, [dispatch, subredditsStatus, navigate, selectedSubreddit]);
+  }, [dispatch, subredditsStatus, selectedSubreddit]);
 
   let content;
 
@@ -46,6 +52,7 @@ const Subreddits = () => {
           } subreddit-btn`}
           onClick={() => {
             dispatch(setSelectedSubreddit(post.url));
+            window.localStorage.setItem('storageSubreddit', post.url);
           }}>
           <Avatar
             backgroundColor={post.primary_color}

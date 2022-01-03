@@ -25,10 +25,17 @@ const CommentsPage = () => {
   const status = useSelector(selectCommentsStatus);
   const error = useSelector(selectCommentsError);
 
+  // const params = useParams();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchComments(postId));
+    // if (!postId) {
+    //   dispatch(fetchComments(params.postId));
+    // } else {
+    //   dispatch(fetchComments(postId));
+    // }
   }, [dispatch, postId]);
 
   let content;
