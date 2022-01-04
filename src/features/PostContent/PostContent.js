@@ -41,12 +41,14 @@ const PostContent = ({ post }) => {
         <h4>Votes</h4>
         <small className='votes-num'>{numberFormat(`${score}`)}</small>
       </div>
+
       <div className='post-main'>
         <Link to={`${permalink}`}>
           <h2 onClick={handlePostSelect}>
             {title} {over_18 && <span className='nsfw-icon'>NSFW</span>}
           </h2>
         </Link>
+
         {is_video && (
           <div className='media-ctr'>
             <video
@@ -58,15 +60,18 @@ const PostContent = ({ post }) => {
             />
           </div>
         )}
+
         {url && (
           <div className='media-ctr'>
             <img src={url} alt='' className='post-media' />
           </div>
         )}
+
         <hr />
         <div className='post-details'>
           <p>by {author}</p>
           <p>{moment.unix(created_utc).fromNow()}</p>
+
           <Link
             to={`${permalink}`}
             onClick={handlePostSelect}

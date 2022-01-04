@@ -8,7 +8,7 @@ const CommentReplies = ({ comment }) => {
       <Comment comment={reply.data} key={reply.data.id} />
     ));
   } else {
-    return <div></div>;
+    return <></>;
   }
 };
 

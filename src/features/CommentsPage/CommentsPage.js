@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
 
+import './CommentsPage.css';
+
 import {
   fetchComments,
   selectSelectedPostId,
@@ -13,10 +15,8 @@ import {
 } from './commentsPageSlice';
 import { selectSelectedPost } from './commentsPageSlice';
 
-import Comment from '../Comment/Comment';
 import { numberFormat } from '../../utils/numberFormat';
-
-import './CommentsPage.css';
+import Comment from '../Comment/Comment';
 
 const CommentsPage = () => {
   const postId = useSelector(selectSelectedPostId);
@@ -25,17 +25,10 @@ const CommentsPage = () => {
   const status = useSelector(selectCommentsStatus);
   const error = useSelector(selectCommentsError);
 
-  // const params = useParams();
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchComments(postId));
-    // if (!postId) {
-    //   dispatch(fetchComments(params.postId));
-    // } else {
-    //   dispatch(fetchComments(postId));
-    // }
   }, [dispatch, postId]);
 
   let content;
@@ -53,6 +46,7 @@ const CommentsPage = () => {
           <small>{moment.unix(post.created_utc).fromNow()}</small>
           <small>Votes: {numberFormat(post.score)}</small>
         </div>
+
         <div className='post-comments-header'>
           <h2>{post.title}</h2>
           {post.selftext && <ReactMarkdown children={post.selftext} />}
@@ -66,6 +60,7 @@ const CommentsPage = () => {
               className='post-media'
             />
           )}
+
           {post.url_overridden_by_dest && (
             <img
               src={post.url_overridden_by_dest}
@@ -74,6 +69,7 @@ const CommentsPage = () => {
             />
           )}
         </div>
+
         <ul className='root-comment'>
           {comments.map((comment) => {
             return <Comment comment={comment} key={comment.id} />;

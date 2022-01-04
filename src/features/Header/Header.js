@@ -40,6 +40,7 @@ const Header = () => {
           </h1>
         </button>
       </Link>
+
       <form className='search-form' onSubmit={handleSearchSubmit}>
         <input
           type='text'

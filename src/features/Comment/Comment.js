@@ -8,9 +8,9 @@ import { numberFormat } from '../../utils/numberFormat';
 import CommentReplies from '../CommentReplies/CommentReplies';
 
 const Comment = ({ comment }) => {
-  return (
+  // Make sure no empty replies are displayed
+  return comment.body ? (
     <li className='comment-item'>
-      {/* {console.log(comment)} */}
       <div className='comment-head'>
         <small>Votes: {numberFormat(comment.score)}</small>
         <small>Posted by {comment.author}</small>
@@ -18,9 +18,11 @@ const Comment = ({ comment }) => {
       </div>
       <ReactMarkdown className='comment-text' children={comment.body} />
       <ul>
-        {comment.replies !== undefined && <CommentReplies comment={comment} />}
+        <CommentReplies comment={comment} />
       </ul>
     </li>
+  ) : (
+    <></>
   );
 };
 
