@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import SubredditPostsLoading from './SubredditPostsLoading';
 
 import {
   selectSubredditPosts,
@@ -12,6 +11,7 @@ import {
 } from '../SubredditPosts/subredditPostsSlice';
 
 import PostContent from '../PostContent/PostContent';
+import SubredditPostsLoading from './SubredditPostsLoading';
 
 const Subreddit = () => {
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
@@ -35,7 +35,15 @@ const Subreddit = () => {
   let content;
 
   if (status === 'loading') {
-    content = <h2 style={{ margin: '3rem' }}>Loading posts...</h2>;
+    content = (
+      <>
+        <SubredditPostsLoading />
+        <SubredditPostsLoading />
+        <SubredditPostsLoading />
+        <SubredditPostsLoading />
+        <SubredditPostsLoading />
+      </>
+    );
   } else if (status === 'succeeded') {
     const filteredPosts = filterPostsBySearchTerm(posts);
     content = filteredPosts.map((post) => {

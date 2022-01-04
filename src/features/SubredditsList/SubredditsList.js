@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
 
 import './SubredditsList.css';
 
@@ -42,7 +43,15 @@ const Subreddits = () => {
   let content;
 
   if (subredditsStatus === 'loading') {
-    content = <h6 style={{ margin: '3rem' }}>Loading subreddits...</h6>;
+    content = (
+      <>
+        <Skeleton style={{ marginBottom: '10px', height: '60px' }} />
+        <Skeleton style={{ marginBottom: '10px', height: '60px' }} />
+        <Skeleton style={{ marginBottom: '10px', height: '60px' }} />
+        <Skeleton style={{ marginBottom: '10px', height: '60px' }} />
+        <Skeleton style={{ marginBottom: '10px', height: '60px' }} />
+      </>
+    );
   } else if (subredditsStatus === 'succeeded') {
     content = subreddits.map((post) => (
       <Link to={`${post.url}`} key={post.id}>
